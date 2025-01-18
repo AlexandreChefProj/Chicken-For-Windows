@@ -3,7 +3,9 @@ import pyttsx3
 import speech_recognition as sr
 import subprocess
 from PIL import Image, ImageTk
+import os
 
+username = os.getlogin()
 
 
 # Initialize text-to-speech engine
@@ -81,19 +83,19 @@ def launch_program(command):
                 subprocess.run("C:/Program Files (x86)/Steam/steam.exe")  # Launch Steam
                 speak("Starting Steam.")
             elif program_name == "vscode" or program_name == "vs code" or program_name == "code" or program_name == "vs":
-                subprocess.run("C:/Users/alexa/AppData/Local/Programs/Microsoft VS Code/Code.exe")  # Launch VS Code
+                subprocess.run(f"fC:/Users/{username}/AppData/Local/Programs/Microsoft VS Code/Code.exe")  # Launch VS Code
                 speak("Starting Visual Studio Code.")
             elif program_name == "discord" or program_name == "disc":
-                subprocess.run('C:/Users/alexa/AppData/Local/Discord/Update.exe --processStart "Discord.exe"')  # Launch Discord
+                subprocess.run(f'C:/Users/{username}/AppData/Local/Discord/Update.exe --processStart "Discord.exe"')  # Launch Discord
                 speak("Starting Discord.")
             elif program_name == "vlc":
                 subprocess.run("C:/Program Files/VideoLAN/VLC/vlc.exe")  # Launch VLC Media Player
                 speak("Starting VLC Media Player.")
             elif program_name == "spotify":
-                subprocess.run("C:/Users/alexa/AppData/Roaming/Spotify/Spotify.exe")  # Launch Spotify
+                subprocess.run(f"C:/Users/{username}/AppData/Roaming/Spotify/Spotify.exe")  # Launch Spotify
                 speak("Starting Spotify.")
             elif program_name == "teams":
-                subprocess.run("C:/Users/alexa/AppData/Local/Microsoft/Teams/current/Teams.exe")  # Launch Microsoft Teams
+                subprocess.run(f"C:/Users/{username}/AppData/Local/Microsoft/Teams/current/Teams.exe")  # Launch Microsoft Teams
                 speak("Starting Microsoft Teams.")
             elif program_name == "word":
                 subprocess.run("C:/Program Files/Microsoft Office/root/Office16/WINWORD.EXE")  # Launch Microsoft Word
