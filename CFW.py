@@ -202,7 +202,7 @@ def create_bot_window():
 
 
 #  ----------------------------  START
-speak("Hello, I am chiken for Windows.")
+speak("Hello, I am chicken for Windows.")
 is_shiny=0
 if random.randrange(0, 172) == 9:
     is_shiny=1
