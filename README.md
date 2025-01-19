@@ -10,6 +10,11 @@ Everything's in the requirement.txt, you can pip install all of these!
 
 Just run the code as it is and it should work without any issues!
 
+## The exe
+
+Well, it's just an exe isn't it? I used pyinstall to create it:
+C:/Users/{username}/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0/LocalCache/local-packages/Python311/Scripts/pyinstaller --onefile --noconsole --icon=torchic1.ico CFW.py
+
 ## What da lil guy do?
 
 What he does is he launches stuff for you! Well I hardcoded what he can launch because everything has a different path, so the code is messy and ugly, I'll work on it more if I want to one day.
