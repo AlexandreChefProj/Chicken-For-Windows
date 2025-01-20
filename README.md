@@ -18,4 +18,6 @@ GEMINI_KEY_API=put_your_key_here
 ## The exe
 
 I used pyinstall to create an executable:
+```
 C:/Users/{username}/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0/LocalCache/local-packages/Python311/Scripts/pyinstaller --onefile --noconsole --icon=icone.ico CFW.py
+```
