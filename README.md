@@ -10,7 +10,8 @@ Everything's in the requirement.txt, you can pip install all of these!
 
 What I do here is that I use Gemini as my ai model and prompt it to answer in a specific way, you can check it all out no problem! i'll update this readme when I have time! Note that you should use your own gemini key in .env, you can create one here[https://aistudio.google.com/app/apikey].
 
-.env```
+.env
+```
 GEMINI_KEY_API=put_your_key_here
 ```
 
