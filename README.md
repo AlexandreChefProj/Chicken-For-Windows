@@ -1,6 +1,6 @@
 # Chicken for Windows
 
-Hello hi I'm having a lot of fun with this little guy. I made it using paint.net hence the pdn file.
+Hello hi welcome! Chicken For Windows is a small project that I did on my free time! It's a bit of a desktop assistant, it can open apps for you and open web pages too. As it's powered by Gemini, you can ask it anything really!
 
 ## Requirements
 
@@ -8,17 +8,13 @@ Everything's in the requirement.txt, you can pip install all of these!
 
 ## The code
 
-Just run the code as it is and it should work without any issues!
+What I do here is that I use Gemini as my ai model and prompt it to answer in a specific way, you can check it all out no problem! i'll update this readme when I have time! Note that you should use your own gemini key in .env, you can create one here[https://aistudio.google.com/app/apikey].
+
+.env```
+GEMINI_KEY_API=put_your_key_here
+```
 
 ## The exe
 
-Well, it's just an exe isn't it? I used pyinstall to create it:
-C:/Users/{username}/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0/LocalCache/local-packages/Python311/Scripts/pyinstaller --onefile --noconsole --icon=torchic1.ico CFW.py
-
-## What da lil guy do?
-
-What he does is he launches stuff for you! Well I hardcoded what he can launch because everything has a different path, so the code is messy and ugly, I'll work on it more if I want to one day.
-
-Wait a good second after he finished speaking and he will gladly listen to "start + 'your word here'", I tried doing it in french with "lance" but all I ended up doing is to make him answer to some guy named Lance but with a very strong english accent.
-
-*- Lence discord* I whisper to the chicken.
+I used pyinstall to create an executable:
+C:/Users/{username}/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0/LocalCache/local-packages/Python311/Scripts/pyinstaller --onefile --noconsole --icon=icone.ico CFW.py

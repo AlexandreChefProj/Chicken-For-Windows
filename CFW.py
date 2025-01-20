@@ -7,7 +7,8 @@ from gtts import gTTS
 import pygame
 import io
 import random
-
+import webbrowser
+from ai import feed_ai
 
 # ----------------------------  GET USERNAME
 username = os.getlogin()
@@ -78,65 +79,23 @@ def listen_for_command():
 
 
 # ----------------------------  COMMANDE HANDLER
-def launch_program(command):
-    if command:
-        if "start" in command or "lance" in command or "open" in command:
-            if "start" in command:
-                program_name = command.replace("start", "").strip()
-                print(f"Attempting to start: {program_name}")
-            elif "lance" in command:
-                program_name = command.replace("lance", "").strip()
-                print(f"Attempting to start: {program_name}")
-            else:
-                program_name = command.replace("open", "").strip()
-                print(f"Attempting to start: {program_name}")
+def launch_program(ai_input):
+    lines = ai_input.splitlines()
 
-            if program_name == "notepad":
-                os.system("notepad")  # Launch Notepad
-                speak("Starting Notepad.")
-            elif program_name == "calculator":
-                os.system("calc")  # Launch Calculator
-                speak("Starting Calculator.")
-            elif program_name == "chrome":
-                os.system('"C:/Program Files/Google/Chrome/Application/chrome.exe"')  # Launch Chrome
-                speak("Starting Google Chrome.")
-            elif program_name == "firefox":
-                os.system('"C:/Program Files/Mozilla Firefox/firefox.exe"')  # Launch Firefox
-                speak("Starting Mozilla Firefox.")
-            elif program_name == "steam":
-                os.system('"C:/Program Files (x86)/Steam/steam.exe"')  # Launch Steam
-                speak("Starting Steam.")
-            elif program_name in ["vscode", "vs code", "code", "vs"]:
-                os.system(rf"code")  # Launch VS Code
-                speak("Starting Visual Studio Code.")
-            elif program_name in ["discord", "disc"]:
-                os.system(rf'C:/Users/{username}/AppData/Local/Discord/Update.exe --processStart "Discord.exe"')  # Launch Discord
-                speak("Starting Discord.")
-            elif program_name == "vlc":
-                os.system('"C:/Program Files/VideoLAN/VLC/vlc.exe"')  # Launch VLC Media Player
-                speak("Starting VLC Media Player.")
-            elif program_name == "spotify":
-                os.system(rf"C:/Users/{username}/AppData/Roaming/Spotify/Spotify.exe")  # Launch Spotify
-                speak("Starting Spotify.")
-            elif program_name == "teams":
-                os.system(rf"C:/Users/{username}/AppData/Local/Microsoft/Teams/current/Teams.exe")  # Launch Microsoft Teams
-                speak("Starting Microsoft Teams.")
-            elif program_name == "word":
-                os.system('"C:/Program Files/Microsoft Office/root/Office16/WINWORD.EXE"')  # Launch Microsoft Word
-                speak("Starting Microsoft Word.")
-            elif program_name == "photoshop":
-                os.system('"C:/Program Files/Adobe/Adobe Photoshop <version>/Photoshop.exe"')  # Launch Photoshop
-                speak("Starting Adobe Photoshop.")
-            elif program_name in ["cmd", "cm"]:
-                os.system("cmd.exe")  # Launch Command Prompt
-                speak("Starting Command Prompt.")
-            elif program_name == "explorer":
-                os.system("explorer.exe")  # Launch File Explorer
-                speak("Opening File Explorer.")
-            else:
-                speak(f"Sorry, I don't know how to start {program_name}.")
-        else:
-            speak(f"I understood: {command}")
+    command = lines[0] if len(lines) > 0 else None
+    line = lines[1] if len(lines) > 1 else None
+    pref = lines[2] if len(lines) > 2 else None
+    text = "\n".join(lines[3:]) if len(lines) > 3 else None
+    if command != 'none':
+        print(command)
+        if "cmd" in command:
+            os.system(line)
+        elif "web" in command:
+            webbrowser.open(line)
+    if pref != 'none' :
+        with open("pref.txt", "w") as file:
+            file.write(pref)
+    speak(text)
 
 
 
@@ -151,7 +110,9 @@ def launch_program(command):
 def on_click(event=None):
     command = listen_for_command()
     if command:
-        launch_program(command)
+        ai_output=feed_ai(command)
+        print(ai_output)
+        launch_program(ai_output)
 
 
 

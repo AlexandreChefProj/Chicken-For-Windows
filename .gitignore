@@ -1,1 +1,9 @@
 *.wav
+*.pdn
+__pycache__/
+*.pyc
+.env
+*.env
+/build/
+dist/
+/*.spec
