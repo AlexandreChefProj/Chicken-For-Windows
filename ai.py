@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def feed_ai(question):
+    username = os.getlogin()
     with open("personnality.txt", "r") as file:
         prompt = file.read()
     with open("pref.txt", "r") as file:
@@ -24,7 +25,7 @@ def feed_ai(question):
             "parts": [{"text": f"{prompt}{pref}\nEnd of the preferences, here is the user question:\n\n{question}"}]
         }]
     }
-    print(f"{prompt}{pref}\nEnd of the preferences, here is the user question:\n\n{question}")
+    print(f"{prompt}{pref}\nEnd of the preferences, here is the UserInput from {username}:\n\n{question}")
     try:
         # Send the POST request
         response = requests.post(url, headers=headers, json=payload)

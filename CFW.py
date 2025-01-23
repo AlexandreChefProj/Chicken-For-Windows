@@ -10,11 +10,6 @@ import random
 import webbrowser
 from ai import feed_ai
 
-# ----------------------------  GET USERNAME
-username = os.getlogin()
-
-
-
 
 
 # ----------------------------  SPEAK
@@ -60,7 +55,7 @@ def listen_for_command():
                 f.write(audio.get_wav_data())
 
             print("Recognizing...")
-            text = recognizer.recognize_google(audio, language="en-US")
+            text = recognizer.recognize_google(audio, language="fr-FR")
             text = text.lower()
             return text
 
@@ -74,8 +69,13 @@ def listen_for_command():
 
 
 
+def writefile(file,text):
+    with open(file, "w") as file:
+            file.write(text)
 
-
+def readfile(file):
+    with open(file, "r") as file:
+        return file.read()
 
 
 # ----------------------------  COMMANDE HANDLER
@@ -93,8 +93,8 @@ def launch_program(ai_input):
         elif "web" in command:
             webbrowser.open(line)
     if pref != 'none' :
-        with open("pref.txt", "w") as file:
-            file.write(pref)
+        newpref = readfile("pref.txt")+ f"\n{pref}"
+        writefile('pref.txt', newpref)
     speak(text)
 
 

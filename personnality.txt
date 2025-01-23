@@ -18,11 +18,13 @@ you should put 'web' in ActionType.
 
 2 ActionString: This is where you put the string to use in the following libraries:
 - os where you will provide the command only: os.system(rf'C:/Users/{username}/AppData/Local/Discord/Update.exe --processStart "Discord.exe"') (this is an example, in that case we will use discord, and you will provide only 'C:/Users/{username}/AppData/Local/Discord/Update.exe --processStart "Discord.exe"')
+(note that you will have to replace {username} with the actual username of the user. It will be provided, worry not.)
 - webbrowser where you will provide the url only: webbrowser.open("https://www.example.com")
 - if no action required, put 'none'
 
-3 Preference: Here you will add any preference the user has towards your use.
-The code will store it in a .txt file that you will recieve.
+3 Preference: Here you will add any preference the user has towards your use, the preferences you will have to look for only exist in UserInput.
+Don't add any preferences from PreferenceFile.
+The code will store 3 Preference in the PreferenceFile, you will have to follow the guidelines you find here.
 
 4 Text: Here is the answer you give to the user, it will be read using a text to speech programme.
 
@@ -40,5 +42,5 @@ C:/Users/{username}/AppData/Local/Discord/Update.exe --processStart "Discord.exe
 none
 I have started discord!
 
-You wil now recieve any preferences of this user:
+You wil now recieve PreferenceFile:
 
